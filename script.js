@@ -1,4 +1,11 @@
-const timeout = 2000;
+const defaults = {
+  primary: "rgb(10, 180, 255)",
+  secondary: "rgb(232, 12, 255)",
+  text: "tvoja_shiza",
+  timeout: 2000,
+};
+
+const timeout = defaults.timeout;
 let root = document.documentElement;
 
 const search = window.location.search;
@@ -6,11 +13,16 @@ const search = window.location.search;
 const data = parseSearch(search);
 
 let colors = [
-  data?.primary || "rgb(10, 180, 255)",
-  data?.secondary || "rgb(232, 12, 255)",
+  data?.primary || defaults.primary,
+  data?.secondary || defaults.secondary,
 ];
 
+let innertext = data?.text || defaults.text;
+
 root.style.setProperty("--timeout", `${data?.timeout || timeout}ms`);
+
+const text = document.querySelector(".text");
+text.innerHTML = innertext;
 
 function parseSearch(str) {
   if (!str.length) return {};
@@ -28,7 +40,7 @@ function parseSearch(str) {
 }
 
 setInterval(() => {
-  data?.primary && root.style.setProperty("--color-primary", colors[0]);
-  data?.secondary && root.style.setProperty("--color-secondary", colors[1]);
+  root.style.setProperty("--color-primary", colors[0]);
+  root.style.setProperty("--color-secondary", colors[1]);
   colors.reverse();
 }, data?.timeout || timeout);

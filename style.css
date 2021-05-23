@@ -1,3 +1,8 @@
+@font-face {
+  font-family: coffin-stone;
+  src: url("coffinstone.ttf");
+}
+
 :root {
   --color-primary: rgb(10, 180, 255);
   --color-secondary: rgb(232, 12, 255);
@@ -6,4 +11,13 @@
 
 stop {
   transition: var(--timeout);
+}
+
+* {
+  font-family: coffin-stone;
+  margin: 0;
+}
+
+.text {
+  font-size: 72px;
 }
