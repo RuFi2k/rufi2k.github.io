@@ -1,12 +1,6 @@
 :root {
-  --top-primary: #fff;
-  --top-secondary: #fff;
-  --side-primary: #fff;
-  --side-secondary: #fff;
-  --bottom-primary: #fff;
-  --bottom-secondary: #fff;
-  --middle-primary: #fff;
-  --middle-secondary: #fff;
+  --color-primary: rgb(10, 180, 255);
+  --color-secondary: rgb(232, 12, 255);
   --timeout: 2000ms;
 }
 
